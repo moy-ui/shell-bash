@@ -44,8 +44,10 @@ esac
 
 if [[ ${anioIn} -lt ${anioActual} ]]; then
    anioResultado=$((${anioActual}-${anioIn}))
+#el anio de nacimiento es menor al actual - logica para calcular meses y dias
+   echo anio de entrada es menor a anio actual 
 else
-   anioResultado=$((${anioIn}-${anioActual}))
+   anioResultado=$((${anioActual}-${anioIn}))
    if [[ ${anioResultado} -eq 0 ]]; then
       if [[ ${mesIn} -le ${mesActual} ]]; then
          mesResultado=$((${mesActual}-${mesIn}))
@@ -57,15 +59,13 @@ else
                echo el dia no puede ser mayor ${diaActual}, dia actual
             fi
          else
-#el mes es anterior - logica para calcular meses y dias
+#el mes es anterior, pero del mismo anio - logica para calcular meses y dias
             diasMesToFinMes=$((${diasMes}-${diaIn}))
-            echo dias mes ${diasMes}
             if [[ $mesResultado -gt 1 ]]; then
-               echo mas de un mes  
+              echo agregar ciclos para sumar meses y dias restantes del anio
             else
                totalDias=$((${diasMesToFinMes}+${diaActual}))
-               echo ${diasMesToFinMes}
-               echo Usted tiene $totalDias de haber nacido.
+               echo Usted tiene $totalDias dias de haber nacido.
             fi 
       	 fi
       else
