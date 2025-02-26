@@ -1,4 +1,4 @@
-#bin/bash
+#!/bin/bash
 
 read -p "Ingresa la ruta: " ruta
 echo ''
