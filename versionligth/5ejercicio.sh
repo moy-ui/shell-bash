@@ -10,6 +10,9 @@ if [[ $# -gt 0 ]];then
         echo "Es un fichero !!"
         exit 0
     fi
+    if [ ! -d $1 ] && [ ! -f $1 ] ;then
+        echo "no es una ruta y no es un fichero :( "
+    fi 
 else
     echo 'No ha ingresado ningun parametro :( '
     exit -1
